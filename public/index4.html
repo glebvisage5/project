@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Платформа для подготовки патентной документации</h1>
+    </header>
+    <div>
+        <button class="custom-button2" onclick="showForm(1)">Создать СА</button>
+        <button class="custom-button2" onclick="showForm(2)">Создать СОП</button>
+        <button class="custom-button2" onclick="showForm(3)">Создать ШЗ</button>
+        <button class="custom-button2" onclick="showForm(4)">Создать ШДЗ</button>
+    </div>
+    <script>
+        let isClicked = false;
+        function showForm(id) {
+            let o = [1, 2, 3, 4]
+            if (!isClicked) {
+                for (let i = 0; i <= 3; i++) {
+                    if (o[i] == id) {
+                        document.getElementById('participantsForm' + id).style.display = 'block';
+                    } else {
+                        document.getElementById('participantsForm' + o[i]).style.display = 'none';
+                    }
+                }
+                document.body.style.zoom = "60%";
+                document.body.style.height = "300vh";
+                isClicked = true;
+            } else {
+                for (let i = 0; i <= 3; i++) {
+                    document.getElementById('participantsForm' + o[i]).style.display = 'none';
+                }
+                document.body.style.zoom = "100%";
+                document.body.style.height = "100vh";
+                isClicked = false;
+            }
+        }
+    </script>
+
+    <nav>
+        <!-- Навигационное меню, если необходимо -->
+        <ul>
+            <a href="index3.html"><svg href="index3.html" xmlns="http://www.w3.org/2000/svg" width="199" height="61"
+                    viewBox="0 0 199 61" fill="none">
+                    <g>
+                        <path d="M182 1H1V60H182L198 45.5L182 30.5L198 15.5L182 1Z" fill="#B8FE4E" stroke="white" />
+                        <text x="10" y="36" fill="#008000" font-family="Arial, serif" font-size="20"
+                            font-weight="400">Сделать реферат</text>
+                    </g>
+                </svg></a>
+            <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="121" height="61" viewBox="0 0 121 61"
+                    fill="none">
+                    <g>
+                        <path d="M119 1H2L18 15.5L2 30.5L18 45.5L2 60H119L103 45.5L119 30.5L103 15.5L119 1Z"
+                            fill="#B8FE4E" stroke="white" />
+                        <text x="35" y="36" fill="#008000" font-family="Arial, serif" font-size="20"
+                            font-weight="400">Меню</text>
+                    </g>
+                </svg></a>
+            <a href="index3.html"><svg xmlns="http://www.w3.org/2000/svg" width="162" height="61" viewBox="0 0 162 61"
+                    fill="none">
+                    <g>
+                        <path d="M161 1H17L1 15.5L17 30.5L1 45.5L17 60H161V1Z" fill="#B8FE4E" stroke="white" />
+                        <text x="30" y="36" fill="#008000" font-family="Arial, serif" font-size="20"
+                            font-weight="400">Сделать код</text>
+                    </g>
+                </svg></a>
+            <!-- Добавьте сс
+            <!-- Добавьте ссылки на другие разделы, если нужно -->
+        </ul>
+    </nav>
+
+
+    <form action="/download" method="post" enctype="multipart/form-data">
+        <input type="checkbox" name="isPDF">
+        <input class="custom-file" type="submit" value="скачать">
+        </svg>
+    </form>
+
+    <form class="invisForm" id="participantsForm1">
+        <label for="userInput">Введите имя продукта:</label>
+        <input type="text" id="Product" placeholder="Введите имя продукта" required>
+        <input type="text" id="FIO" placeholder="Введите ваше ФИО" required>
+        <input type="text" id="DopinfPas2" placeholder="Введите адресс" required>
+        <label for="userInput">Введите дату рождения и краткое описание продукта:</label>
+        <input type="text" id="Date" placeholder="Введите дату рождения:" required>
+        <input type="text" id="SOP" placeholder="Введите краткое описание продукта" required>
+        <br>
+        <button id="Pusg2" class="submit" onclick="sendData2()"></button>
+    </form>
+    <form class="invisForm" id="participantsForm2">
+        <label for="userInput">Введите имя продукта:</label>
+        <input type="text" id="ProductPas" placeholder="Введите имя продукта" required>
+        <input type="text" id="FIOPas" placeholder="Введите ваше ФИО" required>
+        <input type="text" id="DopinfPas" placeholder="Введите адресс" required>
+        <label for="userInput">Введите серию и номер паспорта:</label>
+        <input type="text" id="PSeries" placeholder="Введите серию паспорта" required>
+        <input type="text" id="PNumb" placeholder="Введите номер паспорта" required>
+        <label for="userInput">Введите дату выдачи, кем выдан, код паспорта:</label>
+        <input type="text" id="Date2" placeholder="Введите дату выдачи паспорта" required>
+        <input type="text" id="WhoGave" placeholder="Введите кем выдан паспорта" required>
+        <input type="text" id="CodePod" placeholder="Введите код подразделения" required>
+        <br>
+        <button id="Pusg2" class="submit" onclick="sendData3()"></button>
+    </form>
+    <form class="invisForm" id="participantsForm3">
+        <label for="userInput">Введите основную информацию:</label>
+        <input type="text" id="Product3" placeholder="Введите имя продукта" required>
+        <input type="text" id="FIO3" placeholder="Введите ваше ФИО" required>
+        <input type="text" id="DopinfPas3" placeholder="Введите адресс" required>
+        <input type="text" id="Date3" placeholder="Введите дату рождения:" required>
+        <label for="userInput">Введите документы:</label>
+        <input type="text" id="PSeries3" placeholder="Введите серию паспорта" required>
+        <input type="text" id="PNumb3" placeholder="Введите номер паспорта" required>
+        <input type="text" id="Snils" placeholder="Введите снилс" required>
+        <input type="text" id="Citizenship" placeholder="Введите гражданстово" required>
+
+
+        <label for="userInput">Введите контактную информацию, колличество авторов и ваш вклад:</label>
+        <input type="text" id="NumbTelep" placeholder="Введите номер телефона" required>
+        <input type="text" id="Email" placeholder="Введите почту" required>
+        <input type="text" id="CounAth" placeholder="Введите колличество автров" required>
+        <input type="text" id="SOP3" placeholder="Введите краткое описание вклада" required>
+        <label for="userInput">Введите дополнительную информацию:</label>
+        <input type="text" id="IPEVM" placeholder="Введите идентифицирующие программу" required>
+        <input type="text" id="Referat" placeholder="Введите реферат" required>
+        <input type="text" id="DopRef" placeholder="Введите дополнеие к реферату" required>
+        <input type="text" id="DocOp" placeholder="Введите документы об оплате" required>
+        <label for="userInput">Введите год создания:</label>
+        <input type="text" id="YearCreate" placeholder="Введите год создания" required>
+
+        <br>
+        <button id="Pusg3" class="submit" onclick="sendData4()"></button>
+    </form>
+    <form class="invisForm" id="participantsForm4">
+        <label for="userInput">Введите общую информацию:</label>
+        <input type="text" id="Product4" placeholder="Введите имя продукта" required>
+        <label for="userInput">Введите основную информацию:</label>
+        <input type="text" id="FIO4_1" placeholder="Введите ваше ФИО" required>
+        <input type="text" id="DopinfPas4_1" placeholder="Введите адресс" required>
+        <input type="text" id="Date4_1" placeholder="Введите дату рождения:" required>
+        <input type="text" id="PSeries4_1" placeholder="Введите серию паспорта" required>
+        <br>
+        <input type="text" id="PNumb4_1" placeholder="Введите номер паспорта" required>
+        <input type="text" id="Snils4_1" placeholder="Введите снилс" required>
+        <input type="text" id="Citizenship4_1" placeholder="Введите гражданстово" required>
+        <input type="text" id="SOP4_1" placeholder="Введите краткое описание вклада" required>
+
+        <label for="userInput">Введите основную информацию (2):</label>
+        <input type="text" id="FIO4_2" placeholder="Введите ваше ФИО">
+        <input type="text" id="DopinfPas4_2" placeholder="Введите адресс">
+        <input type="text" id="Date4_2" placeholder="Введите дату рождения:">
+        <input type="text" id="PSeries4_2" placeholder="Введите серию паспорта">
+        <br>
+        <input type="text" id="PNumb4_2" placeholder="Введите номер паспорта">
+        <input type="text" id="Snils4_2" placeholder="Введите снилс">
+        <input type="text" id="Citizenship4_2" placeholder="Введите гражданстово">
+        <input type="text" id="SOP4_2" placeholder="Введите краткое описание вклада">
+
+        <label for="userInput">Введите основную информацию (3):</label>
+        <input type="text" id="FIO4_3" placeholder="Введите ваше ФИО">
+        <input type="text" id="DopinfPas4_3" placeholder="Введите адресс">
+        <input type="text" id="Date4_3" placeholder="Введите дату рождения:">
+        <input type="text" id="PSeries4_3" placeholder="Введите серию паспорта">
+        <br>
+        <input type="text" id="PNumb4_3" placeholder="Введите номер паспорта">
+        <input type="text" id="Snils4_3" placeholder="Введите снилс">
+        <input type="text" id="Citizenship4_3" placeholder="Введите гражданстово">
+        <input type="text" id="SOP4_3" placeholder="Введите краткое описание вклада">
+
+        <label for="userInput">Введите основную информацию (4):</label>
+        <input type="text" id="FIO4_4" placeholder="Введите ваше ФИО">
+        <input type="text" id="DopinfPas4_4" placeholder="Введите адресс">
+        <input type="text" id="Date4_4" placeholder="Введите дату рождения:">
+        <input type="text" id="PSeries4_4" placeholder="Введите серию паспорта">
+        <br>
+        <input type="text" id="PNumb4_4" placeholder="Введите номер паспорта">
+        <input type="text" id="Snils4_4" placeholder="Введите снилс">
+        <input type="text" id="Citizenship4_4" placeholder="Введите гражданстово">
+        <input type="text" id="SOP4_4" placeholder="Введите краткое описание вклада">
+
+        <label for="userInput">Введите основную информацию (5):</label>
+        <input type="text" id="FIO4_5" placeholder="Введите ваше ФИО">
+        <input type="text" id="DopinfPas4_5" placeholder="Введите адресс">
+        <input type="text" id="Date4_5" placeholder="Введите дату рождения:">
+        <input type="text" id="PSeries4_5" placeholder="Введите серию паспорта">
+        <br>
+        <input type="text" id="PNumb4_5" placeholder="Введите номер паспорта">
+        <input type="text" id="Snils4_5" placeholder="Введите снилс">
+        <input type="text" id="Citizenship4_5" placeholder="Введите гражданстово">
+        <input type="text" id="SOP4_5" placeholder="Введите краткое описание вклада">
+
+        <label for="userInput">Введите основную информацию (6):</label>
+        <input type="text" id="FIO4_6" placeholder="Введите ваше ФИО">
+        <input type="text" id="DopinfPas4_6" placeholder="Введите адресс">
+        <input type="text" id="Date4_6" placeholder="Введите дату рождения:">
+        <input type="text" id="PSeries4_6" placeholder="Введите серию паспорта">
+        <br>
+        <input type="text" id="PNumb4_6" placeholder="Введите номер паспорта">
+        <input type="text" id="Snils4_6" placeholder="Введите снилс">
+        <input type="text" id="Citizenship4_6" placeholder="Введите гражданстово">
+        <input type="text" id="SOP4_6" placeholder="Введите краткое описание вклада">
+
+        <label for="userInput">Введите основную информацию (7):</label>
+        <input type="text" id="FIO4_7" placeholder="Введите ваше ФИО">
+        <input type="text" id="DopinfPas4_7" placeholder="Введите адресс">
+        <input type="text" id="Date4_7" placeholder="Введите дату рождения:">
+        <input type="text" id="PSeries4_7" placeholder="Введите серию паспорта">
+        <br>
+        <input type="text" id="PNumb4_7" placeholder="Введите номер паспорта">
+        <input type="text" id="Snils4_7" placeholder="Введите снилс">
+        <input type="text" id="Citizenship4_7" placeholder="Введите гражданстово">
+        <input type="text" id="SOP4_7" placeholder="Введите краткое описание вклада">
+
+        <label for="userInput">Введите основную информацию (8):</label>
+        <input type="text" id="FIO4_8" placeholder="Введите ваше ФИО">
+        <input type="text" id="DopinfPas4_8" placeholder="Введите адресс">
+        <input type="text" id="Date4_8" placeholder="Введите дату рождения:">
+        <input type="text" id="PSeries4_8" placeholder="Введите серию паспорта">
+        <br>
+        <input type="text" id="PNumb4_8" placeholder="Введите номер паспорта">
+        <input type="text" id="Citizenship4_8" placeholder="Введите гражданстово">
+        <input type="text" id="Snils4_8" placeholder="Введите снилс">
+        <input type="text" id="SOP4_8" placeholder="Введите краткое описание вклада">
+
+
+
+        <br>
+        <button id="Pusg4" class="submit" onclick="sendData5()"></button>
+    </form>
+    <script>
+        async function sendData2() {
+            var info = [];
+            var Product = document.getElementById('Product').value;
+            info.push(Product)
+            var FIO = document.getElementById('FIO').value;
+            info.push(FIO)
+            var Dopinf = document.getElementById('DopinfPas2').value;
+            Dopinf = Dopinf.split(',');
+            for (let i = 0; i < 7; i++) {
+                if (i >= Dopinf.lenght) {
+                    info.push('');
+                } else {
+                    info.push(Dopinf[i]);
+                }
+
+            }
+            var Date = document.getElementById('Date').value;
+            Date = Date.split('.');
+            for (let i = 0; i < 3; i++) {
+                if (i >= Date.lenght) {
+                    info.push('');
+                } else {
+                    info.push(Date[i]);
+                }
+
+            }
+            var SOP = document.getElementById('SOP').value;
+            info.push(SOP)
+            alert('Ваши данные были переданны, пожалуйста подождите пару минут, а после нажмите кнопку скачать')
+            // Отправка данных на сервер
+            await fetch('/submit2', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ info }),
+            });
+            document.getElementById('participantsForm1').style.display = 'none';
+            document.body.style.zoom = "100%";
+            document.body.style.height = "100vh";
+        }
+    </script>
+    <script>
+        async function sendData3() {
+            var info = [];
+            var Product = document.getElementById('ProductPas').value;
+            alert(Product);
+            info.push(Product)
+            var FIO = document.getElementById('FIOPas').value;
+            info.push(FIO)
+            var Dopinf = document.getElementById('DopinfPas').value;
+            Dopinf = Dopinf.split(',');
+            for (let i = 0; i < 7; i++) {
+                if (i >= Dopinf.lenght) {
+                    info.push('');
+                } else {
+                    info.push(Dopinf[i]);
+                }
+
+            }
+            var PSeries = document.getElementById('PSeries').value;
+            info.push(PSeries)
+            var PNumb = document.getElementById('PNumb').value;
+            info.push(PNumb)
+            var Date = document.getElementById('Date2').value;
+            info.push(Date)
+            var WhoGave = document.getElementById('WhoGave').value;
+            info.push(WhoGave)
+            var CodePod = document.getElementById('CodePod').value;
+            info.push(CodePod)
+            alert('Ваши данные были переданны, пожалуйста подождите пару минут, а после нажмите кнопку скачать')
+            // Отправка данных на сервер
+            await fetch('/submit3', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ info }),
+            });
+            document.getElementById('participantsForm2').style.display = 'none';
+            document.body.style.zoom = "100%";
+            document.body.style.height = "100vh";
+        }
+    </script>
+    <script>
+        async function sendData4() {
+            var info = [];
+            var Product = document.getElementById('Product3').value;
+            info.push(Product)
+            var FIO = document.getElementById('FIO3').value;
+            info.push(FIO)
+            var Dopinf = document.getElementById('DopinfPas3').value;  //Доп с 2-8
+            Dopinf = Dopinf.split(',');
+            for (let i = 0; i < 7; i++) {
+                if (i >= Dopinf.lenght) {
+                    info.push('');
+                } else {
+                    info.push(Dopinf[i]);
+                }
+
+            }
+            var Date = document.getElementById('Date3').value; //Даты с 9-11
+            Date = Date.split('.');
+            for (let i = 0; i < 3; i++) {
+                if (i >= Date.lenght) {
+                    info.push('');
+                } else {
+                    info.push(Date[i]);
+                }
+
+            }
+
+            var PSeries3 = document.getElementById('PSeries3').value;  //12
+            info.push(PSeries3)
+            var PNumb3 = document.getElementById('PNumb3').value;  //13
+            info.push(PNumb3)
+            var Snils = document.getElementById('Snils').value;//14
+            info.push(Snils)
+            var Citizenship = document.getElementById('Citizenship').value; //15
+            info.push(Citizenship)
+
+            var NumbTelep = document.getElementById('NumbTelep').value; //16
+            info.push(NumbTelep)
+            var Email = document.getElementById('Email').value; //17
+            info.push(Email)
+            var CounAth = document.getElementById('CounAth').value; //18
+            info.push(CounAth)
+            var SOP3 = document.getElementById('SOP3').value; //19
+            info.push(SOP3)
+
+            var IPEVM = document.getElementById('IPEVM').value; //20
+            info.push(IPEVM)
+            var Referat = document.getElementById('Referat').value; //21
+            info.push(Referat)
+            var DopRef = document.getElementById('DopRef').value; //22
+            info.push(DopRef)
+            var DocOp = document.getElementById('DocOp').value; //23
+            info.push(DocOp)
+
+            var YearCreate = document.getElementById('YearCreate').value; //24
+            info.push(YearCreate)
+            // Отправка данных на сервер
+            alert('Ваши данные были переданны, пожалуйста подождите пару минут, а после нажмите кнопку скачать')
+            await fetch('/submit4', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ info }),
+            });
+            document.getElementById('participantsForm3').style.display = 'none';
+            document.body.style.zoom = "100%";
+            document.body.style.height = "100vh";
+        }
+    </script>
+    <script>
+        async function sendData5() {
+            var info = [];
+            var Product = document.getElementById('Product4').value; //0
+            info.push(Product)
+            for (let s = 1; s <= 8; s++) {
+                var FIO = document.getElementById('FIO4_' + s).value; // 1
+                info.push(FIO)
+                var Dopinf = document.getElementById('DopinfPas4_' + s).value;  //Доп с 2-8
+                Dopinf = Dopinf.split(',');
+                for (let i = 0; i < 7; i++) {
+                    if (i >= Dopinf.lenght) {
+                        info.push('');
+                    } else {
+                        info.push(Dopinf[i]);
+                    }
+
+                }
+                var Date = document.getElementById('Date4_' + s).value; //Даты с 9-11
+                Date = Date.split('.');
+                for (let i = 0; i < 3; i++) {
+                    if (i >= Date.lenght) {
+                        info.push('');
+                    } else {
+                        info.push(Date[i]);
+                    }
+
+                }
+
+                var PSeries3 = document.getElementById('PSeries4_' + s).value;  //12
+                info.push(PSeries3)
+                var PNumb3 = document.getElementById('PNumb4_' + s).value;  //13
+                info.push(PNumb3)
+                var Snils = document.getElementById('Snils4_' + s).value;//14
+                info.push(Snils)
+                var SOP = document.getElementById('SOP4_' + s).value; //15
+                info.push(SOP)
+
+                var Citizenship = document.getElementById('Citizenship4_' + s).value; //16
+                info.push(Citizenship)
+            }
+            alert('Ваши данные были переданны, пожалуйста подождите пару минут, а после нажмите кнопку скачать')
+            await fetch('/submit5', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ info }),
+            });
+            document.getElementById('participantsForm4').style.display = 'none';
+            document.body.style.zoom = "100%";
+            document.body.style.height = "100vh";
+        }
+    </script>
+</body>
+
+</html>

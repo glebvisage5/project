@@ -1,0 +1,350 @@
+body {
+    background-image: url('/fon.svg');
+    ;
+    /* Замените 'your-background-image.jpg' на путь к вашему фоновому изображению */
+    background-size: cover;
+    /* Растягивает фоновое изображение на всю ширину и высоту экрана */
+    background-position: center;
+    /* Центрирует фоновое изображение */
+    background-repeat: no-repeat;
+    /* Запрещает повторение фонового изображения */
+    height: 100vh;
+    max-width: 1920px;
+    max-height: 1080px;
+    /* Занимает 100% высоты экрана */
+    display: flex;
+    border: none;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    object-fit: cover;
+}
+
+.submit {
+    background-color: #B8FE4E;
+    color: #fff;
+    height: 10px;
+    width: 90px;
+    padding: 10px 15px;
+    border: none;
+
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 4px;
+}
+
+.custom-button {
+    background: #B8FE4E;
+    /* Замените цвет на тот, который вы хотите использовать */
+    color: green;
+    /* Цвет текста на кнопке */
+}
+
+.custom-button3 {
+    background: #B8FE4E;
+    /* Замените цвет на тот, который вы хотите использовать */
+    color: green;
+    /* Цвет текста на кнопке */
+}
+
+.submit:hover {
+
+    background-color: #45a049;
+}
+
+
+nav ul {
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+
+    margin-right: 10px;
+}
+
+nav a {
+    color: green;
+    text-decoration: none;
+}
+
+.invisForm {
+    max-width: 1800px;
+    margin: 0 auto;
+    background-color: #0C0E1F;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    display: none;
+}
+
+
+
+.custom-button2 {
+    color: green;
+}
+
+#dada {
+    display: inline;
+}
+
+label {
+    color: green;
+    font-size: 16px;
+}
+
+header {
+    color: white;
+}
+
+@media screen and (max-width: 600px) {
+    label {
+        font-size: 8px;
+    }
+
+    textarea {
+        width: 80%;
+        /* Уменьшаем ширину текстовой области */
+        height: 5px;
+        /* Задаем фиксированную высоту (можно настроить по своему усмотрению) */
+    }
+
+    header {
+        font-size: 10px;
+        /* Установка размера шрифта заголовка */
+    }
+
+    nav {
+        padding: 10px;
+        margin-top: 40px;
+        font-size: 6px;
+        height: 5px;
+
+    }
+
+    body {
+        height: 300vh;
+    }
+
+    .custom-button {
+        /* Цвет текста на кнопке */
+        padding: 10px 10px;
+        /* Отступы вокруг текста */
+        font-size: 16px;
+        /* Размер шрифта */
+        border: solid;
+        width: -90%;
+        /* Убирает границу кнопки */
+        cursor: pointer;
+        /* Изменяет курсор при наведении на кнопку */
+    }
+
+    .custom-button2 {
+        border-radius: 6px;
+        width: 127px;
+        height: 34px;
+        background: #B8FE4E;
+        border: 2px solid white
+    }
+
+    .custom-button3 {
+        border-radius: 6px;
+        width: 197px;
+        height: 54px;
+        background: #B8FE4E;
+        border: 2px solid white
+    }
+
+    .submit {
+        width: -90%;
+    }
+
+}
+
+/* Стили для устройств с шириной экрана от 601 до 900 пикселей */
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    label {
+        font-size: 12px;
+    }
+
+    .invisForm {
+        font-size: 14px;
+        /* Уменьшение размера шрифта для формы на маленьких экранах */
+    }
+
+    textarea {
+        font-size: 12px;
+        /* Уменьшение размера шрифта для textarea на маленьких экранах */
+    }
+
+    header {
+        font-size: 14px;
+        /* Установка размера шрифта заголовка */
+    }
+
+    nav {
+
+        padding: 10px;
+        margin-top: 40px;
+        font-size: 10px;
+        height: 10px;
+    }
+
+    body {
+        height: 150vh;
+    }
+
+    footer {
+        height: 25px;
+        /* Установите желаемую высоту подвала */
+        width: 100%;
+    }
+
+    .submit {
+        width: -48%;
+    }
+
+    .custom-button {
+        border-radius: 8px;
+        width: 127px;
+        height: 44px;
+        background: #B8FE4E;
+        border: 2px solid white
+            /* Изменяет курсор при наведении на кнопку */
+    }
+
+    .custom-button2 {
+        border-radius: 8px;
+        width: 127px;
+        height: 44px;
+        background: #B8FE4E;
+        border: 2px solid white
+    }
+
+    .custom-button3 {
+        border-radius: 8px;
+        width: 207px;
+        height: 44px;
+        background: #B8FE4E;
+        border: 2px solid white
+    }
+
+
+}
+
+/* Стили для устройств с шириной экрана 901 пикселей и более */
+@media screen and (min-width: 901px) {
+
+    header {
+        font-size: 18px;
+        /* Установка размера шрифта заголовка */
+    }
+
+    nav {
+
+        padding: 10px;
+        margin-top: 40px;
+        font-size: 14px;
+        height: 15px;
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    nav a {
+        color: #FFC0CB;
+        text-decoration: none;
+    }
+
+    footer {
+        height: 50px;
+        /* Установите желаемую высоту подвала */
+        width: 100%;
+    }
+
+    .custom-button {
+        border-radius: 10px;
+        width: 167px;
+        height: 54px;
+        background: #B8FE4E;
+        border: 2px solid white
+            /* Изменяет курсор при наведении на кнопку */
+    }
+
+    .custom-button2 {
+        border-radius: 10px;
+        width: 167px;
+        height: 54px;
+        background: #B8FE4E;
+        border: 2px solid white
+    }
+
+    .custom-button3 {
+        border-radius: 10px;
+        width: 227px;
+        height: 54px;
+        background: #B8FE4E;
+        border: 2px solid white
+    }
+
+}
+
+
+head {
+    text-align: center;
+}
+
+
+button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+
+textarea {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid green;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.custom-file {
+    margin-top: 50px;
+    background: #B8FE4E;
+    border: 2px solid white;
+    /* Замените цвет на тот, который вы хотите использовать */
+    color: green;
+    /* Цвет текста на кнопке */
+}

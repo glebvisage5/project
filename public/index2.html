@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Платформа для подготовки патентной документации</h1>
+    </header>
+
+
+    <button class="custom-button" id="sdafa" onclick="showForm()">Создатель кода</button>
+    <script>
+        let isClicked = false;
+        function showForm() {
+            if (!isClicked) {
+                document.getElementById('participantsForm').style.display = 'block';
+                document.body.style.zoom = "75%";
+                document.body.style.height = "150vh";
+                isClicked = true;
+            } else {
+                document.getElementById('participantsForm').style.display = 'none';
+                document.body.style.zoom = "100%";
+                document.body.style.height = "100vh";
+                isClicked = false;
+            }
+        }
+    </script>
+
+    <nav id="dada">
+        <!-- Навигационное меню, если необходимо -->
+        <ul>
+            <a href="index3.html"><svg href="index3.html" xmlns="http://www.w3.org/2000/svg" width="199" height="61"
+                    viewBox="0 0 199 61" fill="none">
+                    <g>
+                        <path d="M182 1H1V60H182L198 45.5L182 30.5L198 15.5L182 1Z" fill="#B8FE4E" stroke="white" />
+                        <text x="10" y="36" fill="#008000" font-family="Arial, serif" font-size="20"
+                            font-weight="400">Сделать реферат</text>
+                    </g>
+                </svg></a>
+            <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="121" height="61" viewBox="0 0 121 61"
+                    fill="none">
+                    <g>
+                        <path d="M119 1H2L18 15.5L2 30.5L18 45.5L2 60H119L103 45.5L119 30.5L103 15.5L119 1Z"
+                            fill="#B8FE4E" stroke="white" />
+                        <text x="35" y="36" fill="#008000" font-family="Arial, serif" font-size="20"
+                            font-weight="400">Меню</text>
+                    </g>
+                </svg></a>
+            <a href="index4.html"><svg xmlns="http://www.w3.org/2000/svg" width="162" height="61" viewBox="0 0 162 61"
+                    fill="none">
+                    <g>
+                        <path d="M161 1H17L1 15.5L17 30.5L1 45.5L17 60H161V1Z" fill="#B8FE4E" stroke="white" />
+                        <text x="43" y="36" fill="#008000" font-family="Arial, serif" font-size="20"
+                            font-weight="400">Бумага</text>
+                    </g>
+                </svg></a>
+            <!-- Добавьте ссылки на другие разделы, если нужно -->
+        </ul>
+    </nav>
+
+
+    <form action="/download" method="post" enctype="multipart/form-data">
+        <input type="checkbox" name="isPDF">
+        <input class="custom-file" type="submit" value="скачать">
+    </form>
+    <form class="invisForm" id="participantsForm">
+        <label for="participantNames">Введите имена участников (разделяйте запятыми):</label>
+        <textarea id="participantNames" name="participantNames" rows="1" cols="15"></textarea>
+        <br>
+        <label for="AddInfo">Введите название программы:</label>
+        <input type="text" id="typename" name="typename" placeholder="Введите название программы">
+        <br>
+        <label for="AppCodes">Введите код программы:</label>
+        <textarea id="AppCode" name="AppCode" rows="2" cols="15"></textarea>
+        <br>
+        <button class="submit" id="sub2" onclick="sendData()">
+    </form>
+    <script>
+        async function sendData() {
+            var info = [];
+            var participantNames = document.getElementById('participantNames').value;
+            info.push(participantNames)
+            var typename = document.getElementById('typename').value;
+            info.push(typename)
+            var AppCode = document.getElementById('AppCode').value;
+            info.push(AppCode)
+
+            alert('Ваши данные были переданны, пожалуйста подождите пару минут, а после нажмите кнопку скачать')
+            // Отправка данных на сервер
+            await fetch('/submit6', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ info }),
+            });
+            document.getElementById('participantsForm').style.display = 'none';
+            document.body.style.zoom = "100%";
+            document.body.style.height = "100vh";
+        }
+    </script>
+
+</body>
+
+</html>
